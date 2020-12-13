@@ -48,10 +48,18 @@ input.onButtonPressed(Button.AB, function () {
     soundExpression.giggle.play()
 })
 radio.onReceivedString(function (receivedString) {
-    if ("forward" == receivedString) {
+    if (receivedString == "2") {
+    	
+    } else if ("forward" == receivedString) {
         TPBot.setTravelTime(TPBot.DriveDirection.Forward, 100, 0.5)
+    } else if ("backward" == receivedString) {
+        TPBot.setTravelTime(TPBot.DriveDirection.Backward, 100, 0.5)
+    } else if ("left" == receivedString) {
+        TPBot.setTravelTime(TPBot.DriveDirection.Left, 20, 0.5)
+    } else if ("right" == receivedString) {
+        TPBot.setTravelTime(TPBot.DriveDirection.Right, 20, 0)
     } else {
-        music.playMelody("E D G F B A C5 B ", 120)
+        soundExpression.hello.play()
     }
 })
 input.onButtonPressed(Button.B, function () {
@@ -70,6 +78,7 @@ input.onGesture(Gesture.LogoDown, function () {
         `)
     TPBot.headlightColor(0xffffff)
 })
+radio.setGroup(1)
 input.setSoundThreshold(SoundThreshold.Loud, 181)
 TPBot.stopCar()
 soundExpression.hello.play()
