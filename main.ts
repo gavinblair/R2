@@ -116,9 +116,9 @@ radio.onReceivedString(function (receivedString) {
         TPBot.setServo180(TPBot.ServoList.S1, 0)
     } else if (receivedString == "3") {
         TPBot.setServo180(TPBot.ServoList.S2, 90)
-        basic.pause(100)
+        basic.pause(200)
         TPBot.setServo180(TPBot.ServoList.S2, 0)
-        basic.pause(100)
+        basic.pause(200)
         TPBot.setServo180(TPBot.ServoList.S2, 90)
     } else if ("forward" == receivedString) {
         TPBot.setTravelTime(TPBot.DriveDirection.Forward, 100, 0.5)
