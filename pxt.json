@@ -1,0 +1,23 @@
+{
+    "name": "testing",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "pxt-TPBot": "github:elecfreaks/pxt-tpbot#v1.1.4",
+        "joystickbit": "github:tinkertanker/pxt-joystickbit#v1.0.1"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
