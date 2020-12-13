@@ -48,7 +48,11 @@ input.onButtonPressed(Button.AB, function () {
     soundExpression.giggle.play()
 })
 radio.onReceivedString(function (receivedString) {
-    music.playMelody("E D G F B A C5 B ", 120)
+    if ("forward" == receivedString) {
+        TPBot.setTravelTime(TPBot.DriveDirection.Forward, 100, 0.5)
+    } else {
+        music.playMelody("E D G F B A C5 B ", 120)
+    }
 })
 input.onButtonPressed(Button.B, function () {
     basic.showIcon(IconNames.Angry)
@@ -65,9 +69,6 @@ input.onGesture(Gesture.LogoDown, function () {
         . . . . .
         `)
     TPBot.headlightColor(0xffffff)
-})
-input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-	
 })
 input.setSoundThreshold(SoundThreshold.Loud, 181)
 TPBot.stopCar()
