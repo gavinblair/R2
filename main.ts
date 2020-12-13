@@ -57,7 +57,7 @@ radio.onReceivedString(function (receivedString) {
     } else if ("left" == receivedString) {
         TPBot.setTravelTime(TPBot.DriveDirection.Left, 20, 0.5)
     } else if ("right" == receivedString) {
-        TPBot.setTravelTime(TPBot.DriveDirection.Right, 20, 0)
+        TPBot.setTravelTime(TPBot.DriveDirection.Right, 20, 0.5)
     } else {
         soundExpression.hello.play()
     }
@@ -84,7 +84,7 @@ TPBot.stopCar()
 soundExpression.hello.play()
 basic.showLeds(`
     . . . . .
-    . . . # .
+    . . . . #
     . . . . .
     . . . . .
     . . . . .
