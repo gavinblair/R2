@@ -22,6 +22,18 @@ input.onGesture(Gesture.ScreenDown, function () {
     TPBot.setTravelTime(TPBot.DriveDirection.Forward, 100, 0.5)
     TPBot.setTravelTime(TPBot.DriveDirection.Backward, 100, 0.5)
 })
+function dizzy () {
+    music.startMelody(music.builtInMelody(Melodies.Nyan), MelodyOptions.ForeverInBackground)
+    basic.showIcon(IconNames.Heart)
+    TPBot.headlightColor(0xff0000)
+    TPBot.setTravelTime(TPBot.DriveDirection.Right, 100, 5)
+    music.stopAllSounds()
+    TPBot.setTravelTime(TPBot.DriveDirection.Left, 20, 1)
+    TPBot.setTravelTime(TPBot.DriveDirection.Right, 20, 1)
+    TPBot.setTravelTime(TPBot.DriveDirection.Left, 20, 1)
+    TPBot.setTravelTime(TPBot.DriveDirection.Right, 20, 1)
+    soundExpression.giggle.play()
+}
 input.onSound(DetectedSound.Loud, function () {
     music.startMelody(music.builtInMelody(Melodies.JumpUp), MelodyOptions.Once)
     basic.showLeds(`
@@ -36,20 +48,19 @@ input.onSound(DetectedSound.Loud, function () {
     TPBot.stopCar()
 })
 input.onButtonPressed(Button.AB, function () {
-    music.startMelody(music.builtInMelody(Melodies.Nyan), MelodyOptions.ForeverInBackground)
-    basic.showIcon(IconNames.Heart)
-    TPBot.headlightColor(0xff0000)
-    TPBot.setTravelTime(TPBot.DriveDirection.Right, 100, 5)
-    music.stopAllSounds()
-    TPBot.setTravelTime(TPBot.DriveDirection.Left, 20, 1)
-    TPBot.setTravelTime(TPBot.DriveDirection.Right, 20, 1)
-    TPBot.setTravelTime(TPBot.DriveDirection.Left, 20, 1)
-    TPBot.setTravelTime(TPBot.DriveDirection.Right, 20, 1)
-    soundExpression.giggle.play()
+    dizzy()
 })
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "2") {
     	
+    } else if (receivedString == "4") {
+        dizzy()
+    } else if (receivedString == "1") {
+        TPBot.setServo360(TPBot.ServoList.S1, 100)
+    } else if (receivedString == "3") {
+        TPBot.setServo180(TPBot.ServoList.S2, 90)
+        TPBot.setServo180(TPBot.ServoList.S2, 0)
+        TPBot.setServo180(TPBot.ServoList.S2, 90)
     } else if ("forward" == receivedString) {
         TPBot.setTravelTime(TPBot.DriveDirection.Forward, 100, 0.5)
     } else if ("backward" == receivedString) {
