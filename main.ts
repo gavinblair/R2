@@ -109,12 +109,16 @@ radio.onReceivedString(function (receivedString) {
     } else if (receivedString == "6") {
         magic()
     } else if (receivedString == "1") {
-        TPBot.setServo180(TPBot.ServoList.S1, 180)
         TPBot.setServo180(TPBot.ServoList.S1, 0)
+        basic.pause(100)
         TPBot.setServo180(TPBot.ServoList.S1, 180)
+        basic.pause(100)
+        TPBot.setServo180(TPBot.ServoList.S1, 0)
     } else if (receivedString == "3") {
         TPBot.setServo180(TPBot.ServoList.S2, 90)
+        basic.pause(100)
         TPBot.setServo180(TPBot.ServoList.S2, 0)
+        basic.pause(100)
         TPBot.setServo180(TPBot.ServoList.S2, 90)
     } else if ("forward" == receivedString) {
         TPBot.setTravelTime(TPBot.DriveDirection.Forward, 100, 0.5)
