@@ -1,3 +1,54 @@
+function magic () {
+    soundExpression.soaring.playUntilDone()
+    TPBot.headlightColor(0xff0000)
+    basic.showLeds(`
+        # # # # #
+        # . . . .
+        # . . . .
+        # . . . #
+        # # # # #
+        `)
+    basic.pause(100)
+    TPBot.headlightColor(0xff8000)
+    basic.showLeds(`
+        # # # . .
+        # . . . #
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    basic.pause(100)
+    TPBot.headlightColor(0xffff00)
+    basic.pause(100)
+    basic.showLeds(`
+        # . . # #
+        # . . . #
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    TPBot.headlightColor(0x00ff00)
+    basic.pause(100)
+    basic.showLeds(`
+        . # # # #
+        . . . . #
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    TPBot.headlightColor(0x0000ff)
+    basic.pause(100)
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        . . . . #
+        . . . . #
+        # # # # #
+        `)
+    TPBot.headlightColor(0x7f00ff)
+    basic.pause(100)
+    basic.showIcon(IconNames.Happy)
+}
 input.onButtonPressed(Button.A, function () {
     basic.showIcon(IconNames.Happy)
     soundExpression.happy.play()
@@ -55,8 +106,12 @@ radio.onReceivedString(function (receivedString) {
     	
     } else if (receivedString == "4") {
         dizzy()
+    } else if (receivedString == "6") {
+        magic()
     } else if (receivedString == "1") {
-        TPBot.setServo360(TPBot.ServoList.S1, 100)
+        TPBot.setServo180(TPBot.ServoList.S1, 180)
+        TPBot.setServo180(TPBot.ServoList.S1, 0)
+        TPBot.setServo180(TPBot.ServoList.S1, 180)
     } else if (receivedString == "3") {
         TPBot.setServo180(TPBot.ServoList.S2, 90)
         TPBot.setServo180(TPBot.ServoList.S2, 0)
