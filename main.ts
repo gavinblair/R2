@@ -1,5 +1,5 @@
 function magic () {
-    soundExpression.soaring.playUntilDone()
+    soundExpression.soaring.play()
     TPBot.headlightColor(0xff0000)
     basic.showLeds(`
         # # # # #
@@ -134,7 +134,7 @@ input.onButtonPressed(Button.B, function () {
     TPBot.headlightColor(0x0000ff)
 })
 input.onGesture(Gesture.LogoDown, function () {
-    soundExpression.giggle.playUntilDone()
+    soundExpression.giggle.play()
     basic.showLeds(`
         . # # # .
         # . . . #
