@@ -6,7 +6,8 @@
         "radio": "*",
         "microphone": "*",
         "pxt-TPBot": "github:elecfreaks/pxt-tpbot#v1.1.4",
-        "joystickbit": "github:tinkertanker/pxt-joystickbit#v1.0.1"
+        "joystickbit": "github:tinkertanker/pxt-joystickbit#v1.0.1",
+        "Star wars": "github:zoster/vader-theme#e25bc98590c212aad19215995f7dab25980f6407"
     },
     "files": [
         "main.blocks",

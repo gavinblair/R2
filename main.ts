@@ -8,8 +8,15 @@ function magic () {
         # . . . #
         # # # # #
         `)
-    basic.pause(100)
-    TPBot.headlightColor(0xff8000)
+    basic.pause(50)
+    basic.showLeds(`
+        # # # # .
+        # . . . .
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    basic.pause(50)
     basic.showLeds(`
         # # # . .
         # . . . #
@@ -17,9 +24,16 @@ function magic () {
         # . . . #
         # # # # #
         `)
-    basic.pause(100)
-    TPBot.headlightColor(0xffff00)
-    basic.pause(100)
+    basic.pause(50)
+    basic.showLeds(`
+        # # . . #
+        # . . . #
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    basic.pause(50)
+    TPBot.headlightColor(0xff8000)
     basic.showLeds(`
         # . . # #
         # . . . #
@@ -27,8 +41,15 @@ function magic () {
         # . . . #
         # # # # #
         `)
-    TPBot.headlightColor(0x00ff00)
-    basic.pause(100)
+    basic.pause(50)
+    basic.showLeds(`
+        . . # # #
+        # . . . #
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    basic.pause(50)
     basic.showLeds(`
         . # # # #
         . . . . #
@@ -36,8 +57,16 @@ function magic () {
         # . . . #
         # # # # #
         `)
-    TPBot.headlightColor(0x0000ff)
-    basic.pause(100)
+    basic.pause(50)
+    basic.showLeds(`
+        # # # # #
+        . . . . #
+        . . . . #
+        # . . . #
+        # # # # #
+        `)
+    basic.pause(50)
+    TPBot.headlightColor(0xffff00)
     basic.showLeds(`
         # # # # #
         # . . . #
@@ -45,9 +74,108 @@ function magic () {
         . . . . #
         # # # # #
         `)
+    basic.pause(50)
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # . . . #
+        . . . . #
+        . # # # #
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # . . . #
+        # . . . #
+        . . # # #
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # . . . #
+        # . . . #
+        # . . # #
+        `)
+    basic.pause(50)
+    TPBot.headlightColor(0x00ff00)
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # . . . #
+        # . . . #
+        # # . . #
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # . . . #
+        # . . . #
+        # # # . .
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # . . . #
+        # . . . .
+        # # # # .
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # . . . .
+        # . . . .
+        # # # # #
+        `)
+    basic.pause(50)
+    TPBot.headlightColor(0x0000ff)
+    basic.showLeds(`
+        # # # # #
+        # . . . .
+        # . . . .
+        # . . . #
+        # # # # #
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        # # # # .
+        # . . . .
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        # # # # .
+        # . . . #
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        # # # # #
+        # . . . #
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    basic.pause(50)
     TPBot.headlightColor(0x7f00ff)
     basic.pause(100)
-    basic.showIcon(IconNames.Happy)
+    basic.showIcon(IconNames.SmallSquare)
+    basic.showIcon(IconNames.Square)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . # . .
+        . . . . .
+        . . . . .
+        `)
 }
 input.onButtonPressed(Button.A, function () {
     basic.showIcon(IconNames.Happy)
@@ -106,6 +234,12 @@ radio.onReceivedString(function (receivedString) {
     	
     } else if (receivedString == "4") {
         dizzy()
+    } else if (receivedString == "5") {
+        TPBot.headlightColor(0x00ffff)
+        TPBot.setTravelSpeed(TPBot.DriveDirection.Forward, 50)
+        blair.starWarsTheme(2)
+        TPBot.stopCar()
+        basic.showIcon(IconNames.Chessboard)
     } else if (receivedString == "6") {
         magic()
     } else if (receivedString == "1") {
@@ -148,14 +282,15 @@ input.onGesture(Gesture.LogoDown, function () {
         `)
     TPBot.headlightColor(0xffffff)
 })
+magic()
 radio.setGroup(1)
 input.setSoundThreshold(SoundThreshold.Loud, 181)
 TPBot.stopCar()
 soundExpression.hello.play()
 basic.showLeds(`
     . . . . .
-    . . . . #
     . . . . .
+    # . . . .
     . . . . .
     . . . . .
     `)
